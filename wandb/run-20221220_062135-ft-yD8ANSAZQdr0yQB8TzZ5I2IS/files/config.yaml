@@ -1,0 +1,89 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.7
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.8.16
+    start_time: 1671517295.742361
+    t:
+      1:
+      - 55
+      2:
+      - 55
+      3:
+      - 2
+      - 13
+      - 14
+      - 16
+      - 23
+      4: 3.8.16
+      5: 0.13.7
+      8:
+      - 5
+created_at:
+  desc: null
+  value: '2022-12-20T06:14:57'
+fine_tuned_model:
+  desc: null
+  value: curie:ft-new-york-university-2022-12-20-06-21-16
+hyperparams:
+  desc: null
+  value:
+    batch_size: 2
+    learning_rate_multiplier: 0.1
+    n_epochs: 4
+    prompt_loss_weight: 0.1
+id:
+  desc: null
+  value: ft-yD8ANSAZQdr0yQB8TzZ5I2IS
+model:
+  desc: null
+  value: curie
+object:
+  desc: null
+  value: fine-tune
+organization_id:
+  desc: null
+  value: org-HjCdtP78SRqgBYjvhQlUd26I
+result_files:
+  desc: null
+  value:
+    bytes: 34400
+    created_at: 1671517277
+    filename: compiled_results.csv
+    id: file-kcCDlaaw9hpFEMoyygMRliKA
+    object: file
+    purpose: fine-tune-results
+    status: processed
+    status_details: null
+status:
+  desc: null
+  value: succeeded
+training_files:
+  desc: null
+  value:
+    bytes: 115013
+    created_at: 1671516894
+    filename: dw_train.jsonl
+    id: file-LHAdzJFbs6oAaSUXCh7DI4Ir
+    object: file
+    purpose: fine-tune
+    status: processed
+    status_details: null
+updated_at:
+  desc: null
+  value: 1671517278
+validation_files:
+  desc: null
+  value:
+    bytes: 11485
+    created_at: 1671516897
+    filename: dw_valid.jsonl
+    id: file-StoXXKAs5UjPudAzIMBbPMAc
+    object: file
+    purpose: fine-tune
+    status: processed
+    status_details: null

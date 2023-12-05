@@ -1,0 +1,36 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.7
+    is_jupyter_run: true
+    is_kaggle_kernel: false
+    python_version: 3.8.16
+    start_time: 1671517333.123034
+    t:
+      1:
+      - 55
+      2:
+      - 55
+      3:
+      - 2
+      - 23
+      4: 3.8.16
+      5: 0.13.7
+      8:
+      - 1
+      - 5
+fine_tuned_model:
+  desc: null
+  value: curie:ft-new-york-university-2022-12-20-06-21-16
+hyperparams:
+  desc: null
+  value:
+    batch_size: 2
+    learning_rate_multiplier: 0.1
+    n_epochs: 4
+    prompt_loss_weight: 0.1
+model:
+  desc: null
+  value: curie

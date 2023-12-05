@@ -1,0 +1,28 @@
+{
+    "os": "Linux-5.10.133+-x86_64-with-glibc2.27",
+    "python": "3.8.16",
+    "heartbeatAt": "2022-12-20T06:21:36.736063",
+    "startedAt": "2022-12-20T06:21:35.736708",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "wandb",
+        "sync",
+        "--project",
+        "GPT-3 to Generate Doctor Who Synopses"
+    ],
+    "state": "running",
+    "program": "/usr/local/bin/openai",
+    "host": "ee5346fae977",
+    "username": "root",
+    "executable": "/usr/bin/python3",
+    "cpu_count": 1,
+    "cpu_count_logical": 2,
+    "disk": {
+        "total": 107.71508407592773,
+        "used": 22.960559844970703
+    },
+    "memory": {
+        "total": 12.681217193603516
+    }
+}

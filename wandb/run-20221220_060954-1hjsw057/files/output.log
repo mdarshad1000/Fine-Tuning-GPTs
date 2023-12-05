@@ -1,0 +1,40 @@
+
+[34m[1mwandb[39m[22m: [33mWARNING[39m A graphql request initiated by the public wandb API timed out (timeout=9 sec). Create a new API with an integer timeout larger than 9, e.g., `api = wandb.Api(timeout=19)` to increase the graphql timeout.
+[34m[1mwandb[39m[22m:   1 of 1 files downloaded.
+Analyzing...
+- Based on your file extension, your file is formatted as a CSV file
+- Your file contains 304 prompt-completion pairs
+- The input file should contain exactly two columns/keys per row. Additional columns/keys present are: ['Unnamed: 0', 'Unnamed: 0.1']
+  WARNING: Some of the additional columns/keys contain `Unnamed: 0` in their name. These will be ignored, and the column/key `Unnamed: 0` will be used instead. This could also result from a duplicate column/key in the provided file.
+  WARNING: Some of the additional columns/keys contain `Unnamed: 0.1` in their name. These will be ignored, and the column/key `Unnamed: 0.1` will be used instead. This could also result from a duplicate column/key in the provided file.
+- Your data does not contain a common separator at the end of your prompts. Having a separator string appended to the end of the prompt makes it clearer to the fine-tuned model where the completion should begin. See https://beta.openai.com/docs/guides/fine-tuning/preparing-your-dataset for more detail and examples. If you intend to do open-ended generation, then you should leave the prompts empty
+- Your data does not contain a common ending at the end of your completions. Having a common ending string appended to the end of the completion makes it clearer to the fine-tuned model where the completion should end. See https://beta.openai.com/docs/guides/fine-tuning/preparing-your-dataset for more detail and examples.
+- The completion should start with a whitespace character (` `). This tends to produce better results due to the tokenization we use. See https://beta.openai.com/docs/guides/fine-tuning/preparing-your-dataset for more details
+Based on the analysis we will perform the following actions:
+- [Necessary] Your format `CSV` will be converted to `JSONL`
+- [Necessary] Remove additional columns/keys: ['Unnamed: 0', 'Unnamed: 0.1']
+- [Recommended] Add a suffix separator ` ->` to all prompts [Y/n]: Y
+/usr/local/lib/python3.8/dist-packages/openai/validators.py:222: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  x["prompt"] += suffix
+- [Recommended] Add a suffix ending ` END` to all completions [Y/n]: Y
+/usr/local/lib/python3.8/dist-packages/openai/validators.py:378: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  x["completion"] += suffix
+- [Recommended] Add a whitespace character to the beginning of the completion [Y/n]: Y
+/usr/local/lib/python3.8/dist-packages/openai/validators.py:421: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  x["completion"] = x["completion"].apply(
+Your data will be written to a new JSONL file. Proceed [Y/n]: Y
+Wrote modified file to `dw_synopses_prepared.jsonl`
+Feel free to take a look!
+Now use that file when fine-tuning:
+> openai api fine_tunes.create -t "dw_synopses_prepared.jsonl"
+After you’ve fine-tuned a model, remember that your prompt has to end with the indicator string ` ->` for the model to start generating completions, rather than continuing with the prompt. Make sure to include `stop=[" END"]` so that the generated texts ends at the expected place.
+Once your model starts training, it'll approximately take 6.62 minutes to train a `curie` model, and less for `ada` and `babbage`. Queue will approximately take half an hour per job ahead of you.
